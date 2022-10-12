@@ -25,7 +25,7 @@ done &
 xsetroot -cursor_name left_ptr
 
 #Set Keyboard Layout
-setxkbmap -layout us
+setxkbmap -layout de
 
 #Monitor Config
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10

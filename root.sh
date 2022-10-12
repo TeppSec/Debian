@@ -10,7 +10,8 @@ builddir=$(pwd)
 
 # Add Custom Deb Packages
 dpkg -i 'Custom Packages/rofi_1.7.0-1_amd64.deb'
-dpkg -i ''
+dpkg -i 'Custom Packages/code_1.72.1-1665423861_amd64.deb'
+dpkg -i 'Custom Packages/discord-0.0.16.deb'
 
 # Update packages list
 apt update
@@ -18,6 +19,12 @@ apt update
 # Add base packages
 apt install sudo unzip picom bspwm polybar sddm rofi kitty thunar flameshot neofetch sxhkd git lxpolkit lxappearance xorg yad pulseaudio pavucontrol dunst redshift -y
 apt install papirus-icon-theme feh lxappearance fonts-noto-color-emoji fonts-firacode fonts-font-awesome libqt5svg5 qml-module-qtquick-controls qml-module-qtquick-controls2 -y
+apt install software-properties-common apt-transport-https wget ca-certificates gnupg2 -y
+
+# Brave
+wget -O- https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg | sudo gpg --dearmor | sudo tee /usr/share/keyrings/brave-browser-archive-keyring.gpg
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+apt install brave-browser -y
 
 # Intel WiFi
 # apt install firmware-iwlwifi -y
